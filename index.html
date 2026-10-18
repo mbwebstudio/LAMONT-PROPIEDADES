@@ -9,217 +9,114 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#F3F5F4; --surface:#FFFFFF; --ink:#14302D; --muted:#4F625F;
-  --accent:#14302D; --accent-ink:#F3F5F4; --soft:#E3D9C6; --line:#DCE2E0;
-  --display:Marcellus, Georgia, serif; --body:Figtree, system-ui, sans-serif;
-  --r:2px; --max:1120px;
-}
+:root{--bg:#F3F5F4;--surface:#FFFFFF;--ink:#14302D;--muted:#4F625F;--accent:#14302D;--accent-ink:#F3F5F4;--soft:#E3D9C6;--line:#DCE2E0;
+--display:Marcellus, Georgia, serif;--body:Figtree, system-ui, sans-serif;--r:2px;--br:2px;--dw:400;--tr:-0.01em;--h1:5rem}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
-h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;letter-spacing:-0.01em}
-h2{font-size:clamp(2rem,4.4vw,3.1rem);margin-bottom:18px;max-width:18ch}
-.section-lead{color:var(--muted);max-width:56ch;margin-bottom:40px}
-section{padding:96px 0}
+h1,h2,h3{font-family:var(--display);font-weight:var(--dw);line-height:1.08;letter-spacing:var(--tr)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+body>div{overflow-x:clip}
 svg.i{width:20px;height:20px;flex:none}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:2px;font-weight:700;text-decoration:none;transition:transform .15s,background .15s,color .15s}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:var(--br);font-weight:700;text-decoration:none;transition:transform .15s,background .15s}
 .btn:hover{transform:translateY(-2px)}
 .btn-main{background:var(--accent);color:var(--accent-ink)}
 .btn-ghost{border:2px solid currentColor}
-.stars{color:var(--star, var(--accent));letter-spacing:2px}
-
-header{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:70px}
-.logo{font-family:var(--display);font-weight:400;font-size:1.35rem;text-decoration:none;display:flex;align-items:center;gap:10px;line-height:1.1}
-.logo .mark{width:34px;height:34px;flex:none}
-.nav ul{display:flex;gap:28px;list-style:none}
-.nav ul a{text-decoration:none;color:var(--muted);font-weight:500}
-.nav ul a:hover{color:var(--ink)}
-.nav .btn{padding:10px 18px;font-size:.95rem}
-@media(max-width:860px){.nav ul{display:none}}
-@media(max-width:480px){.nav .btn span{display:none}.logo{font-size:1.1rem}}
-
-.hero{padding:72px 0 96px}
-.hero h1{font-size:clamp(2.6rem,6.6vw,5rem);margin:0 0 22px;max-width:14ch}
-.lead{font-size:1.18rem;color:var(--muted);max-width:44ch;margin-bottom:32px}
-.cta-row{display:flex;flex-wrap:wrap;gap:12px}
-.rating{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:30px;color:var(--muted);font-size:.95rem}
+.stars{color:var(--star,var(--accent));letter-spacing:2px}
+.rating{display:flex;flex-wrap:wrap;align-items:center;gap:10px;color:var(--muted);font-size:.95rem}
 .rating b{color:var(--ink)}
-.visual svg{width:100%;height:auto;display:block}
-.hero-split .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
-.hero-band{background:var(--soft)}
-.hero-band .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.hero-center .wrap{text-align:center;display:flex;flex-direction:column;align-items:center}
-.hero-center h1{max-width:16ch}
-.hero-center .lead{margin-left:auto;margin-right:auto}
-.hero-center .cta-row,.hero-center .rating{justify-content:center}
-.hero-center .visual{width:min(420px,80%);margin-bottom:28px}
-@media(max-width:860px){.hero-split .wrap,.hero-band .wrap{grid-template-columns:1fr}.hero .visual{max-width:380px}}
-
-.services{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));column-gap:48px;border-top:2px solid var(--ink)}
-.services li{padding:28px 28px 32px 0;border-bottom:1px solid var(--line)}
-.services h3{font-size:1.45rem;margin-bottom:8px}
-.services p{color:var(--muted);max-width:40ch}
-
-.place{background:var(--surface)}
-.place .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.place p{max-width:52ch;margin-bottom:14px}
-.facts{list-style:none;display:grid;gap:14px}
-.facts li{display:flex;gap:16px;align-items:baseline;padding:18px 22px;background:var(--bg);border-radius:var(--r);border:1px solid var(--line)}
-.facts b{font-family:var(--display);font-size:1.6rem;font-weight:400;min-width:4.5ch;color:var(--accent-strong, var(--ink))}
-@media(max-width:860px){.place .wrap{grid-template-columns:1fr}}
-
-.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px}
-.quote{padding-top:22px;border-top:4px solid var(--accent)}
-.quote blockquote{font-size:1.12rem;margin-bottom:14px}
-.visual.photo{margin:0}.visual.photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r);display:block}
-.visual.photo figcaption,.gallery figcaption{font-size:.78rem;color:var(--muted);margin-top:6px}
-.visual.photo a,.gallery figcaption a{color:inherit}
-.gallery .grid{columns:4 220px;column-gap:16px}
-.gallery figure{margin:0 0 18px;break-inside:avoid}
-.gallery figure img{width:100%;height:auto;display:block;border-radius:var(--r)}
-.gallery .cap{font-weight:600;font-size:.95rem;color:var(--ink)}
-.place-img{margin-top:22px}.place-img img{width:100%;height:auto;display:block;border-radius:var(--r);border:1px solid var(--line)}
-.place-img figcaption{font-size:.85rem;color:var(--muted);margin-top:6px}
-.menu{background:var(--surface)}
-.menu details{border-top:2px solid var(--ink)}
-.menu details:last-of-type{border-bottom:2px solid var(--ink)}
-.menu summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:20px 0;font-family:var(--display);font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:var(--menu-track,.02em)}
-.menu summary::-webkit-details-marker{display:none}
-.menu summary::after{content:'+';color:var(--accent);font-family:var(--body);font-weight:300}
-.menu details[open] summary::after{content:'–'}
-.menu .cat-note{color:var(--muted);margin:-8px 0 16px;font-size:.95rem}
-.menu ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));column-gap:48px;padding-bottom:28px}
-.menu li{padding:12px 0;border-bottom:1px dashed var(--line)}
-.menu .dish{display:flex;justify-content:space-between;gap:16px;font-weight:700}
-.menu .price{font-variant-numeric:tabular-nums;white-space:nowrap}
-.menu li p{color:var(--muted);font-size:.95rem;max-width:46ch}
-.menu .fine{color:var(--muted);font-size:.9rem;margin-top:24px}
-.quote figcaption{color:var(--muted);font-size:.95rem}
-
-.contact .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:stretch}
-.info{display:flex;flex-direction:column;gap:22px}
-.info .row{display:flex;gap:14px;align-items:flex-start}
-.info .row a{font-weight:700}
-.hours{border-collapse:collapse;width:100%;max-width:420px}
-.hours caption{text-align:left;font-family:var(--display);font-size:1.4rem;font-weight:400;margin-bottom:10px}
-.hours th,.hours td{text-align:left;padding:9px 0;border-bottom:1px solid var(--line);font-weight:400}
-.hours th{color:var(--muted);width:42%}
-.hours-note{display:flex;gap:10px;color:var(--muted)}
-.map{border-radius:var(--r);overflow:hidden;min-height:400px;border:1px solid var(--line);background:var(--soft)}
-.map iframe{width:100%;height:100%;min-height:400px;border:0;display:block}
-@media(max-width:860px){.contact .wrap{grid-template-columns:1fr}}
-
-.closing{background:var(--accent);color:var(--accent-ink);text-align:center}
-.closing h2{margin:0 auto 14px}
-.closing p{max-width:50ch;margin:0 auto 28px;opacity:.9}
-.closing .btn{background:var(--accent-ink);color:var(--accent)}
-
-footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.art svg{width:100%;height:auto;display:block}
+.mark{width:34px;height:34px;flex:none}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:var(--dw);font-size:1.3rem;line-height:1.1}
+.kicker{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.map{background:var(--soft);overflow:hidden}
+.map iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
+.hours{border-collapse:collapse;width:100%;max-width:440px}
+.hours caption{text-align:left;font-family:var(--display);font-weight:var(--dw);font-size:1.3rem;margin-bottom:8px}
+.hours th,.hours td{text-align:left;padding:8px 0;border-bottom:1px solid var(--line);font-weight:400}
+.hours th{color:var(--muted);width:45%}
+.note{display:flex;gap:10px;color:var(--muted)}
+.rows{display:grid;gap:16px;align-content:start}
+.row{display:flex;gap:12px;align-items:flex-start}
+.row a{font-weight:700}
 .float{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:50;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:#fff;box-shadow:0 10px 24px -8px rgba(0,0,0,.45)}
 .float svg{width:28px;height:28px}
+.ft{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+.ft .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+.mn .wrap{max-width:860px}
+.mn header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:28px;padding-bottom:28px}
+.mn header ul{display:flex;gap:22px;list-style:none;font-size:.95rem}
+.mn header ul a{text-decoration:none;color:var(--muted)}
+.mn header ul a:hover{color:var(--ink);text-decoration:underline}
+@media(max-width:700px){.mn header nav{display:none}}
+.mn-hero{padding:70px 0 90px}
+.mn-hero .art{width:120px;margin-bottom:36px}
+.mn-hero h1{font-size:clamp(2.4rem,6vw,calc(var(--h1) * .9));max-width:17ch;margin-bottom:22px}
+.mn-hero .lead{color:var(--muted);font-size:1.15rem;max-width:52ch;margin-bottom:30px}
+.mn-hero .cta{display:flex;flex-wrap:wrap;align-items:center;gap:22px}
+.mn-hero .link{font-weight:700;text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:2px}
+.mn-hero .rating{margin-top:28px}
+.mn-sec{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:64px 0;border-top:1px solid var(--line)}
+.mn-sec>.kicker{padding-top:8px}
+.mn h2{font-size:clamp(1.7rem,3.4vw,2.3rem);margin-bottom:12px}
+.mn .sub{color:var(--muted);margin-bottom:28px;max-width:52ch}
+.mn dl{display:grid}
+.mn dl div{display:grid;grid-template-columns:.8fr 1.2fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mn dt{font-weight:700}
+.mn dd{color:var(--muted)}
+.mn-sec p{margin-bottom:14px;max-width:58ch}
+.mn-facts{color:var(--muted);margin-top:18px}
+.mn-facts b{color:var(--ink);font-weight:700}
+.mn-facts span+span::before{content:' · '}
+.mn-q figure{margin-bottom:26px}
+.mn-q blockquote{font-style:italic;font-size:1.12rem}
+.mn-q figcaption{color:var(--muted);margin-top:6px}
+.mn-c{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:30px}
+.mn .map{border-radius:var(--r);filter:grayscale(1)}
+.mn .map:hover{filter:none}
+.mn .map iframe{min-height:300px}
+@media(max-width:700px){.mn-sec{grid-template-columns:1fr;gap:10px}.mn dl div,.mn-c{grid-template-columns:1fr;gap:6px}}
+.mn-close{padding:80px 0;border-top:1px solid var(--line)}
+.mn-close h2{margin-bottom:10px}
+.mn-close p{color:var(--muted);margin-bottom:24px}
+
 .stars{--star:#B08D57}.quote{border-top-color:#B08D57}.services{border-top-color:#B08D57}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap nav">
-    <a class="logo" href="#"><svg class="mark" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="8" fill="var(--accent)"/><path d="M7 17 17 9l10 8M10 15v10h14V15" fill="none" stroke="var(--accent-ink)" stroke-width="2.4" stroke-linejoin="round"/><rect x="15" y="19" width="4" height="6" fill="var(--accent-ink)"/></svg><span>Lamont Propiedades</span></a>
-    <nav aria-label="Principal"><ul><li><a href="#servicios">Servicios</a></li><li><a href="#lugar">El lugar</a></li><li><a href="#opiniones">Opiniones</a></li><li><a href="#contacto">Contacto</a></li></ul></nav>
-    <a class="btn btn-main" href="https://wa.me/59894409707?text=Hola%20Lamont%20Propiedades%2C%20quisiera%20hacer%20una%20consulta." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg><span>Consultar</span></a>
-  </div>
-</header>
-<main>
-<section class="hero hero-split"><div class="wrap"><div class="copy">
-      <h1>Tu lugar en Punta del Este</h1>
-      <p class="lead">Compra, venta y alquiler de propiedades en Punta del Este, con la atención cercana de una inmobiliaria de confianza.</p>
-      <div class="cta-row">
-        <a class="btn btn-main" href="https://wa.me/59894409707?text=Hola%20Lamont%20Propiedades%2C%20quisiera%20hacer%20una%20consulta." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>Consultar por WhatsApp</a>
-        <a class="btn btn-ghost" href="#contacto"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Cómo llegar</a>
-      </div>
-      <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <span><b>5,0</b> en Google (1 reseña)</span></p></div><div class="visual" aria-hidden="true"><svg viewBox="0 0 220 200"><circle cx="110" cy="100" r="92" fill="var(--soft)"/><path d="M58 98 98 64l40 34v46H58z" fill="var(--surface)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round"/><rect x="88" y="112" width="20" height="32" fill="var(--accent)"/><path d="M138 120h50M172 120v16M184 120v12" stroke="var(--ink)" stroke-width="7" stroke-linecap="round"/><circle cx="140" cy="120" r="10" fill="var(--soft)" stroke="var(--ink)" stroke-width="5"/><path d="M48 104 98 60l50 44" fill="none" stroke="var(--accent)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></section>
-
-<section id="servicios">
-  <div class="wrap">
-    <h2>Propiedades</h2>
-    <p class="section-lead">Todo tipo de operaciones inmobiliarias en Punta del Este y alrededores.</p>
-    <ul class="services">
-        <li><h3>Casas y apartamentos en venta</h3><p>Opciones para vivir todo el año o invertir.</p></li>
-        <li><h3>Alquileres de temporada</h3><p>Casas y apartamentos para el verano en Punta del Este.</p></li>
-        <li><h3>Alquileres anuales</h3><p>Propiedades para alquilar todo el año.</p></li>
-        <li><h3>Terrenos y campos</h3><p>Lotes para construir y campos en la zona.</p></li>
-        <li><h3>Locales comerciales</h3><p>Espacios para tu negocio en Punta del Este.</p></li>
-        <li><h3>Emprendimientos</h3><p>Proyectos nuevos, desde pozo hasta llave en mano.</p></li>
-    </ul>
-  </div>
+<div class="mn">
+<header><div class="wrap"><a class="logo" href="#"><svg class="mark" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="8" fill="var(--accent)"/><path d="M7 17 17 9l10 8M10 15v10h14V15" fill="none" stroke="var(--accent-ink)" stroke-width="2.4" stroke-linejoin="round"/><rect x="15" y="19" width="4" height="6" fill="var(--accent-ink)"/></svg><span>Lamont Propiedades</span></a><nav aria-label="Principal"><ul><li><a href="#servicios">Servicios</a></li><li><a href="#lugar">El lugar</a></li><li><a href="#contacto">Contacto</a></li></ul></nav></div></header>
+<main><div class="wrap">
+<section class="mn-hero">
+  <div class="art" aria-hidden="true"><svg viewBox="0 0 220 200"><circle cx="110" cy="100" r="92" fill="var(--soft)"/><path d="M58 98 98 64l40 34v46H58z" fill="var(--surface)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round"/><rect x="88" y="112" width="20" height="32" fill="var(--accent)"/><path d="M138 120h50M172 120v16M184 120v12" stroke="var(--ink)" stroke-width="7" stroke-linecap="round"/><circle cx="140" cy="120" r="10" fill="var(--soft)" stroke="var(--ink)" stroke-width="5"/><path d="M48 104 98 60l50 44" fill="none" stroke="var(--accent)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <h1>Tu lugar en Punta del Este</h1><p class="lead">Compra, venta y alquiler de propiedades en Punta del Este, con la atención cercana de una inmobiliaria de confianza.</p>
+  <div class="cta"><a class="btn btn-main" href="https://wa.me/59894409707?text=Hola%20Lamont%20Propiedades%2C%20quisiera%20hacer%20una%20consulta." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg><span>Consultar por WhatsApp</span></a><a class="link" href="#contacto">Cómo llegar →</a></div>
+  
 </section>
+<section id="servicios" class="mn-sec"><p class="kicker">Servicios</p><div>
+  <h2>Propiedades</h2><p class="sub">Todo tipo de operaciones inmobiliarias en Punta del Este y alrededores.</p>
+  <dl><div><dt>Casas y apartamentos en venta</dt><dd>Opciones para vivir todo el año o invertir.</dd></div><div><dt>Alquileres de temporada</dt><dd>Casas y apartamentos para el verano en Punta del Este.</dd></div><div><dt>Alquileres anuales</dt><dd>Propiedades para alquilar todo el año.</dd></div><div><dt>Terrenos y campos</dt><dd>Lotes para construir y campos en la zona.</dd></div><div><dt>Locales comerciales</dt><dd>Espacios para tu negocio en Punta del Este.</dd></div><div><dt>Emprendimientos</dt><dd>Proyectos nuevos, desde pozo hasta llave en mano.</dd></div></dl>
+</div></section>
+<section id="lugar" class="mn-sec"><p class="kicker">El lugar</p><div>
+  <h2>Una inmobiliaria de confianza</h2><p>Trabajamos con atención personalizada y siempre a disposición, para que comprar, vender o alquilar sea simple.</p><p>Mirá nuestras propiedades destacadas en Instagram, o escribinos y te mandamos opciones según lo que buscás.</p>
+  <p class="mn-facts"><span><b>L a V</b> de 10 a 18 h</span><span><b>Sáb</b> de 10 a 14 h</span><span><b>Roosevelt</b> Punta del Este</span></p>
+</div></section>
 
-
-
-
-<section id="lugar" class="place">
-  <div class="wrap">
-    <div>
-      <h2>Una inmobiliaria de confianza</h2>
-      <p>Trabajamos con atención personalizada y siempre a disposición, para que comprar, vender o alquilar sea simple.</p>
-      <p>Mirá nuestras propiedades destacadas en Instagram, o escribinos y te mandamos opciones según lo que buscás.</p>
-    </div>
-    <ul class="facts">
-      <li><b>L a V</b><span>de 10 a 18 h</span></li>
-      <li><b>Sáb</b><span>de 10 a 14 h</span></li>
-      <li><b>Roosevelt</b><span>Punta del Este</span></li>
-      
-    </ul>
-  </div>
-</section>
-
-<section id="opiniones">
-  <div class="wrap">
-    <h2>Lo que dicen en Google</h2>
-    <p class="section-lead">5,0 de puntaje en Google, con 1 reseña. Algunas de las más recientes:</p>
-    <div class="quotes">
-        <figure class="quote"><blockquote>“Es la inmobiliaria de Punta del Este de referencia de nuestra familia. Muy cordial, de confianza y siempre a disposición. Muy recomendable!”</blockquote><figcaption>Rocío O. <span class="stars" aria-label="5 estrellas">★★★★★</span></figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<section id="contacto" class="contact" style="padding-top:0">
-
-  <div class="wrap">
-    <div class="info">
-      <h2>Visitanos</h2>
-      <div class="row"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div>Av. Franklin Delano Roosevelt, Punta del Este<br><a href="https://www.google.com/maps/place/Lamont+Propiedades/data=!4m2!3m1!1s0x95751bce5051a169:0x555c4f5d58d69d56" target="_blank" rel="noopener">Abrir en Google Maps</a></div></div>
-      <div class="row"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><div><a href="tel:+59894409707">094 409 707</a> o <a href="https://wa.me/59894409707?text=Hola%20Lamont%20Propiedades%2C%20quisiera%20hacer%20una%20consulta." target="_blank" rel="noopener">WhatsApp</a></div></div>
-      
-      
-      <div class="row"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg><div><a href="https://www.instagram.com/lamontpropiedades/" target="_blank" rel="noopener">Instagram</a></div></div>
-      <table class="hours"><caption>Horarios</caption><tr><th scope="row">Lunes</th><td>10:00 a 18:00</td></tr><tr><th scope="row">Martes</th><td>10:00 a 18:00</td></tr><tr><th scope="row">Miércoles</th><td>10:00 a 18:00</td></tr><tr><th scope="row">Jueves</th><td>10:00 a 18:00</td></tr><tr><th scope="row">Viernes</th><td>10:00 a 18:00</td></tr><tr><th scope="row">Sábado</th><td>10:00 a 14:00</td></tr><tr><th scope="row">Domingo</th><td>Cerrado</td></tr></table>
-    </div>
-    <div class="map"><iframe loading="lazy" title="Mapa de Lamont Propiedades" src="https://www.google.com/maps?q=-34.9276943%2C-54.9473602&output=embed"></iframe></div>
-  </div>
-</section>
-
-<section class="closing">
-  <div class="wrap">
-    <h2>¿Buscás una propiedad?</h2>
-    <p>Contanos qué necesitás y te enviamos opciones.</p>
-    <a class="btn" href="https://wa.me/59894409707?text=Hola%20Lamont%20Propiedades%2C%20quisiera%20hacer%20una%20consulta." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>Consultar por WhatsApp</a>
-  </div>
-</section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <span>© 2026 Lamont Propiedades, Punta del Este</span>
-    <span>Av. Franklin Delano Roosevelt, Punta del Este</span>
-  </div>
-</footer>
+<section id="contacto" class="mn-sec"><p class="kicker">Contacto</p><div>
+  <h2>Visitanos</h2>
+  <div class="mn-c"><div class="rows"><div class="row"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div>Av. Franklin Delano Roosevelt, Punta del Este<br><a href="https://www.google.com/maps/place/Lamont+Propiedades/data=!4m2!3m1!1s0x95751bce5051a169:0x555c4f5d58d69d56" target="_blank" rel="noopener">Abrir en Google Maps</a></div></div>
+<div class="row"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><div><a href="tel:+59894409707">094 409 707</a> o <a href="https://wa.me/59894409707?text=Hola%20Lamont%20Propiedades%2C%20quisiera%20hacer%20una%20consulta." target="_blank" rel="noopener">WhatsApp</a></div></div>
+<div class="row"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg><div><a href="https://www.instagram.com/lamontpropiedades/" target="_blank" rel="noopener">Instagram</a></div></div></div><div><table class="hours"><caption>Horarios</caption><tr><th scope="row">Lunes</th><td>10:00 a 18:00</td></tr><tr><th scope="row">Martes</th><td>10:00 a 18:00</td></tr><tr><th scope="row">Miércoles</th><td>10:00 a 18:00</td></tr><tr><th scope="row">Jueves</th><td>10:00 a 18:00</td></tr><tr><th scope="row">Viernes</th><td>10:00 a 18:00</td></tr><tr><th scope="row">Sábado</th><td>10:00 a 14:00</td></tr><tr><th scope="row">Domingo</th><td>Cerrado</td></tr></table></div></div>
+  <div class="map"><iframe loading="lazy" title="Mapa de Lamont Propiedades" src="https://www.google.com/maps?q=-34.9276943%2C-54.9473602&output=embed"></iframe></div>
+</div></section>
+<section class="mn-close"><h2>¿Buscás una propiedad?</h2><p>Contanos qué necesitás y te enviamos opciones.</p><a class="btn btn-main" href="https://wa.me/59894409707?text=Hola%20Lamont%20Propiedades%2C%20quisiera%20hacer%20una%20consulta." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg><span>Consultar por WhatsApp</span></a></section>
+</div></main>
+<footer class="ft "><div class="wrap"><span>© 2026 Lamont Propiedades, Punta del Este</span><span>Av. Franklin Delano Roosevelt, Punta del Este</span></div></footer>
+</div>
 <a class="float" href="https://wa.me/59894409707?text=Hola%20Lamont%20Propiedades%2C%20quisiera%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg class="i" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg></a>
 </body>
 </html>
